@@ -13,7 +13,7 @@ function stripContentEncoding(result: Response) {
   })
 }
 
-export async function handler(request: NextRequest) {
+async function handler(request: NextRequest) {
   const session = await auth()
 
   const headers = new Headers(request.headers)
@@ -29,6 +29,5 @@ export async function handler(request: NextRequest) {
   return stripContentEncoding(result)
 }
 
-export const dynamic = "force-dynamic"
 
 export { handler as GET, handler as POST }
